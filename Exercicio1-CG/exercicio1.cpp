@@ -56,11 +56,41 @@
     glFlush();
   }
 
+  void montarMesaDeEstudos() {
+
+    // Mesa de Estudos
+    glColor3f(0.6,0.6,0.6);
+    glBegin(GL_POLYGON);
+    glVertex2f(0.5, 0.9);
+    glVertex2f(0, 0.9);
+    glVertex2f(0, 0.6);
+    glVertex2f(0.5, 0.6);
+    glEnd();
+
+    glFlush();
+  }
+
+  void banco() {
+
+    // Banco
+    glColor3f(0.6,0.6,0.6);
+    glBegin(GL_POLYGON);
+    glVertex2f(0.350, 0.45);
+    glVertex2f(0.150, 0.45);
+    glVertex2f(0.150, 0.55);
+    glVertex2f(0.350, 0.55);
+    glEnd();
+
+    glFlush();
+  }
+
   void display() 
   {
     montarCama();
     montarMesaDeCabeceira();
     montarParedes();
+    montarMesaDeEstudos();
+    banco();
   }
 
   void init() 
