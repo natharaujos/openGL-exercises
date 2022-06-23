@@ -54,6 +54,15 @@
     glVertex2f(-0.95, 0.95);
     glVertex2f(0.95, 0.95);
     glVertex2f(0.95, -0.95);
+    glVertex2f(0.75, -0.95);
+    glVertex2f(0.55, -0.75);
+    glEnd();
+    glBegin(GL_LINE_STRIP);
+    glVertex2f(0.55, -0.95);
+    glVertex2f(0.25, -0.95);
+    glEnd();
+    glBegin(GL_LINE_STRIP);
+    glVertex2f(0.1, -0.95);
     glVertex2f(-0.95, -0.95);
     glVertex2f(-0.95, 0.95);
     glEnd();
