@@ -95,10 +95,6 @@
 
   void init() 
   {
-    glClearColor(0, 0, 0, 0); // JMU Gold
-
-    glColor3f(0.314, 0.314, 0.000); // JMU Purple
-
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluOrtho2D(-1.0, 1.0, -1.0, 1.0);
@@ -110,7 +106,7 @@
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
     glutInitWindowSize(640, 480);
     glutInitWindowPosition(0, 0);
-    glutCreateWindow("Test");
+    glutCreateWindow("exercicio1-parte1");
     glutDisplayFunc(display);
     init();
     glutMainLoop();
