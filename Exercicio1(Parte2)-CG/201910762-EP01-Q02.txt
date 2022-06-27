@@ -1,0 +1,2 @@
+Atividade feita no sistema operacional windows 10.
+Foi utilizada a biblioteca Glut.h e Windows.h, e no editor de código Visual Studio Code.

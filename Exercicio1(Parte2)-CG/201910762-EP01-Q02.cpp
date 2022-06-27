@@ -114,11 +114,13 @@
 
     montarParedes();
 
+    // Moviment mesa de estudos
     glPushMatrix();
     glTranslatef(0, mesaEstMov, 0);
     montarMesaDeEstudos();
     glPopMatrix();
 
+    // Movimenta banco
     glPushMatrix();
     glTranslatef(0, bancoMov, 0);
     banco();
