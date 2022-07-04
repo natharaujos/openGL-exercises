@@ -5,24 +5,23 @@
 using namespace std;
 
 // float camaMov = 0.0;
-// float mesaCabMov = 0.0;
-// float mesaEstMov = 0.0;
-// float bancoMov = 0.0;
+float mesaCabMov = 0.0;
+float mesaEstMov = 0.0;
+float bancoMov = 0.0;
 
-float eixoX = 0.0;
-float eixoY = 0.0;
-char opa;
+float x = 0.0;
+float y = 0.0;
 
 void montarCama()
 {
-  if (opa == 'c')
-  {
-    glPushMatrix();
-    glTranslatef(eixoX, eixoY, 0);
-  }
+  glPushMatrix();
+  glLoadIdentity();
+  glTranslatef(x, y, 0);
+  glClear(GL_COLOR_BUFFER_BIT);
+
   // Cama
-  glBegin(GL_POLYGON);
   glColor3f(0.5, 0.5, 0.5);
+  glBegin(GL_POLYGON);
   glVertex2f(-0.35, 0.9);
   glVertex2f(-0.65, 0.9);
   glVertex2f(-0.65, 0.4);
@@ -30,28 +29,22 @@ void montarCama()
   glEnd();
 
   // Travesseiro
-  // glColor3f(1, 1, 1);
-  // glBegin(GL_POLYGON);
-  // glVertex2f(-0.4, 0.85);
-  // glVertex2f(-0.6, 0.85);
-  // glVertex2f(-0.6, 0.75);
-  // glVertex2f(-0.4, 0.75);
-  // glClearColor(0, 0, 0, 0);
-  // glEnd();
+  glColor3f(1, 1, 1);
+  glBegin(GL_POLYGON);
+  glVertex2f(-0.4, 0.85);
+  glVertex2f(-0.6, 0.85);
+  glVertex2f(-0.6, 0.75);
+  glVertex2f(-0.4, 0.75);
+  glEnd();
+  glClearColor(0, 0, 0, 0);
 
-  if (opa == 'c')
-  {
-    glPopMatrix();
-  }
+  glFlush();
+  glLoadIdentity();
+  glPopMatrix();
 }
 
 void montarMesaDeCabeceira()
 {
-  if (opa == 'm')
-  {
-    glPushMatrix();
-    glTranslatef(eixoX, eixoY, 0);
-  }
 
   // Mesa de Cabeceira
   glColor3f(0.6, 0.6, 0.6);
@@ -62,16 +55,12 @@ void montarMesaDeCabeceira()
   glVertex2f(-0.1, 0.75);
   glEnd();
 
-  if (opa == 'm')
-  {
-    glPopMatrix();
-  }
-
   glFlush();
 }
 
 void montarParedes()
 {
+
   // Mesa de Cabeceira
   glColor3f(0.6, 0.6, 0.6);
   glBegin(GL_LINE_STRIP);
@@ -96,11 +85,7 @@ void montarParedes()
 
 void montarMesaDeEstudos()
 {
-  if (opa == 'e')
-  {
-    glPushMatrix();
-    glTranslatef(eixoX, eixoY, 0);
-  }
+
   // Mesa de Estudos
   glColor3f(0.6, 0.6, 0.6);
   glBegin(GL_POLYGON);
@@ -110,21 +95,12 @@ void montarMesaDeEstudos()
   glVertex2f(0.5, 0.6);
   glEnd();
 
-  if (opa == 'e')
-  {
-    glPopMatrix();
-  }
-
   glFlush();
 }
 
 void banco()
 {
-  if (opa == 'b')
-  {
-    glPushMatrix();
-    glTranslatef(eixoX, eixoY, 0);
-  }
+
   // Banco
   glColor3f(0.6, 0.6, 0.6);
   glBegin(GL_POLYGON);
@@ -134,50 +110,33 @@ void banco()
   glVertex2f(0.350, 0.55);
   glEnd();
 
-  if (opa == 'b')
-  {
-    glPopMatrix();
-  }
-
   glFlush();
 }
 
 void display()
 {
-  glClear(GL_COLOR_BUFFER_BIT);
   // Movimenta cama
-
-  if (opa == 't')
-  {
-    glPushMatrix();
-    glTranslatef(eixoX, eixoY, 0);
-  }
   montarCama();
 
   // Movimenta mesa de cabeceira
-  // glPushMatrix();
-  // glTranslatef(x, y, 0);
+  glPushMatrix();
+  glTranslatef(x, y, 0);
   montarMesaDeCabeceira();
-  // glPopMatrix();
+  glPopMatrix();
 
   montarParedes();
 
   // Moviment mesa de estudos
-  // glPushMatrix();
-  // glTranslatef(x, y, 0);
+  glPushMatrix();
+  glTranslatef(x, y, 0);
   montarMesaDeEstudos();
-  // glPopMatrix();
+  glPopMatrix();
 
   // Movimenta banco
-  // glPushMatrix();
-  // glTranslatef(x, y, 0);
+  glPushMatrix();
+  glTranslatef(x, y, 0);
   banco();
-  // glPopMatrix();
-  if (opa == 't')
-  {
-    glPopMatrix();
-  }
-  glFlush();
+  glPopMatrix();
 }
 
 void gerenciaTeclado(unsigned char tecla, int x, int y)
@@ -185,31 +144,16 @@ void gerenciaTeclado(unsigned char tecla, int x, int y)
   switch (tecla)
   {
   case 'd':
-    eixoX += 0.05;
+    x += 0.05;
     break;
   case 'a':
-    eixoX -= 0.05;
+    x -= 0.05;
     break;
   case 'w':
-    eixoY += 0.05;
+    y += 0.05;
     break;
   case 's':
-    eixoY -= 0.05;
-    break;
-  case 'c':
-    opa = 'c';
-    break;
-  case 'm':
-    opa = 'm';
-    break;
-  case 'e':
-    opa = 'e';
-    break;
-  case 'b':
-    opa = 'b';
-    break;
-  case 't':
-    opa = 't';
+    y -= 0.05;
     break;
   default:
     break;
@@ -219,8 +163,7 @@ void gerenciaTeclado(unsigned char tecla, int x, int y)
 
 void init()
 {
-  glColor3f(1, 1, 1);
-  glMatrixMode(GL_MODELVIEW);
+  glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
   gluOrtho2D(-1.0, 1.0, -1.0, 1.0);
 }

@@ -1,0 +1,8 @@
+<<<<<<< HEAD
+Atividade feita no sistema operacional windows 10.
+Foi utilizada a biblioteca Glut.h e Windows.h, e no editor de código Visual Studio Code.
+=======
+Atividade realizada no sistema operacional windows 10.
+Foram utilizadas as bibliotecas windows.h e glut.h.
+Foi utilizado o editor de código fonte: Visual Studio Code.
+>>>>>>> e068fad25a06409d7b588b42b9fe9437df56878d
