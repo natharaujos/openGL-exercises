@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
   glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH | GLUT_RGBA);
   glutInitWindowSize(520, 520);
   glutInitWindowPosition(700, 280);
-  glutCreateWindow("Atividade 3 - Parte 1");
+  glutCreateWindow("Atividade 3 - Parte 2");
   glutReshapeFunc(ChangeSize);
   glutKeyboardFunc(keyboard);
   glutDisplayFunc(RenderScene);
