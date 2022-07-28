@@ -44,13 +44,13 @@ void keyboard(unsigned char key, int x, int y)
   switch (key)
   {
   case 't':
-    transCone = 0.1;
+    transCone -= 0.1;
     break;
   case 'r':
-    transCone2 = 0.1;
+    transCone2 -= 0.1;
     break;
   case 'a':
-    transCone3 = 0.1;
+    transCone3 -= 0.1;
     break;
   case 'T':
     transCone = 1.0;
