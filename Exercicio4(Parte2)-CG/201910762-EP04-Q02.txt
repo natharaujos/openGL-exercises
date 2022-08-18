@@ -1,0 +1,4 @@
+Atividade realizada no sistema operacional windows 10.
+Foram utilizadas as bibliotecas windows.h e glut.h.
+Foi utilizado o editor de código fonte: Visual Studio Code.
+
